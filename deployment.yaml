@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: energy-consumption-prediction
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: energy-consumption-prediction
+  template:
+    metadata:
+      labels:
+        app: energy-consumption-prediction
+    spec:
+      containers:
+      - name: energy-consumption-prediction
+        image: kamoliddinnabijonov/energy-consumption-prediction
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 9696
